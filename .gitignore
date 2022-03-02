@@ -1,0 +1,10 @@
+*.csv
+*.env
+*.cache
+*.ipynb_checkpoints
+*.ipython
+*.jupyter
+*.local
+__pycache__
+documents
+airflow/logs/*

@@ -1,0 +1,7 @@
+#airflow ignored files
+logs/*
+*.ipynb_checkpoints
+*.ipython
+*.jupyter
+*.local
+__pycache__

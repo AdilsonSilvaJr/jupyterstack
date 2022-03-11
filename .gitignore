@@ -41,5 +41,15 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+#Enviroment Jupyter
+jupyter/*
+run-docker-jupyter.sh
+stop-docker-jupyter.sh
+
+#clouds
+terraform/aws/*
+terraform/azure/*
+
 #global
 variables.tf
+

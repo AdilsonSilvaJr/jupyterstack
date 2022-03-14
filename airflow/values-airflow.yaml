@@ -676,12 +676,21 @@ web:
 
   ## configs for the web Pods' readiness probe
   ##
-  readinessProbe:
-    enabled: true
-    initialDelaySeconds: 10
+  ## readinessProbe:
+  ##   enabled: true
+  ##   initialDelaySeconds: 10
+  ##   periodSeconds: 10
+  ##   timeoutSeconds: 5
+  ##   failureThreshold: 6
+
+  ## configs for the web Pods' startupProbe probe
+  startupProbe:
+    initialDelaySeconds: 5
     periodSeconds: 10
-    timeoutSeconds: 5
-    failureThreshold: 6
+    timeoutSeconds: 15
+    failureThreshold: 30
+    tcpSocket:
+      port: 6432
 
   ## configs for the web Pods' liveness probe
   ##
@@ -957,12 +966,21 @@ flower:
 
   ## configs for the flower Pods' readinessProbe probe
   ##
-  readinessProbe:
-    enabled: true
-    initialDelaySeconds: 10
+  ## readinessProbe:
+  ##   enabled: true
+  ##   initialDelaySeconds: 10
+  ##   periodSeconds: 10
+  ##   timeoutSeconds: 5
+  ##   failureThreshold: 6
+
+  ## configs for the flower Pods' startupProbe probe
+  startupProbe:
+    initialDelaySeconds: 5
     periodSeconds: 10
-    timeoutSeconds: 5
-    failureThreshold: 6
+    timeoutSeconds: 15
+    failureThreshold: 30
+    tcpSocket:
+      port: 6432
 
   ## configs for the flower Pods' liveness probe
   ##

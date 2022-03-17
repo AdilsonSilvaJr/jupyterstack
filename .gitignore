@@ -42,6 +42,7 @@ override.tf.json
 terraform.rc
 
 #Enviroment Jupyter
+server-jupyter/*
 jupyter/*
 run-docker-jupyter.sh
 stop-docker-jupyter.sh

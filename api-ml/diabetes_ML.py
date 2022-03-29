@@ -4,8 +4,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 class Variables(BaseModel):
-    Height:float
-    Weight:float
+    BMI:float
     Age: int
     Income: int
     PhysHlth: int
@@ -20,7 +19,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World 12"}
+    return {"message": "Project Diabetes - Team Jupter - StackLabs"}
 
 @app.post("/predict")
 async def model(data:Variables):
@@ -31,9 +30,8 @@ async def model(data:Variables):
     columns = ['BMI','Age','Income','PhysHlth', 'Education', 'GenHlth', 'MentHlth', 'HighBP', 'Fruits', 'Smoker']
 
     data = data.dict()
-    bmi = data["Weight"] / (data["Height"] * data["Height"])
     input_values = [[
-        bmi,
+        data["BMI"],
         data["Age"],
         data["Income"],
         data["PhysHlth"],

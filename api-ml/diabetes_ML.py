@@ -1,6 +1,7 @@
 import pandas as pd
 from pycaret.classification import load_model, predict_model
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 class Variables(BaseModel):
@@ -15,18 +16,20 @@ class Variables(BaseModel):
     Fruits: int
     Smoker: int
 
-app = FastAPI()                                                                       
+app = FastAPI()
+origins = ["*"]
 
-@app.get("/")
-async def root():
-    return {"message": "Project Diabetes - Team Jupter - StackLabs"}
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)                                                                     
 
 @app.post("/predict")
-async def model(data:Variables):
+async def model(data:Variables):   
     rf_model = load_model("model/RF_model_diabetes")
-    #fs = gcsfs.GCSFileSystem(token='credentials/terraform-config.json')
-    #rf_model = pickle.load(fs.open('bucket-diabetes-ml/RF_model_diabetes.pkl','rb'))
-    
     columns = ['BMI','Age','Income','PhysHlth', 'Education', 'GenHlth', 'MentHlth', 'HighBP', 'Fruits', 'Smoker']
 
     data = data.dict()

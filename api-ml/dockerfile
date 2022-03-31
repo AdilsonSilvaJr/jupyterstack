@@ -1,29 +1,16 @@
 FROM python:3.9
 
-RUN apt-get update --fix-missing && \
-    lsb-release; \
-    GCSFUSE_REPO=gcsfuse-bionic; \
-    echo "deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main" | \
-    tee /etc/apt/sources.list.d/gcsfuse.list; \
-    curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | \
-    apt-key add -; \
-    apt-get update; \
-    apt-get install -y gcsfuse \
-    && apt-get clean
-    
-RUN mkdir ml && mkdir ml/model && mkdir ml/credentials
+RUN mkdir ml
 
 WORKDIR /ml
+
+COPY model model
 
 COPY requirements.txt requirements.txt
 
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY diabetes_ML.py diabetes_ML.py
-
-COPY credentials credentials
-
-ENV GOOGLE_APPLICATION_CREDENTIALS /ml/credentials/terraform-config.json
 
 COPY ./start.sh ./start.sh
 

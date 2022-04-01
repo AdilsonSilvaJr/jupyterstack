@@ -51,6 +51,5 @@ stop-docker-jupyter.sh
 terraform/aws/*
 terraform/azure/*
 
-#global
-variables.tf
-
+#models
+*.pkl

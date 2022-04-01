@@ -1,7 +1,7 @@
 provider "google" {
-  credentials = "../../credentials/terraform-config.json"
-  project     = var.project
-  region      = var.region
+  credentials = var.gcp_credentials
+  project     = var.gcp_project
+  region      = var.gcp_region
 }
 
 terraform {

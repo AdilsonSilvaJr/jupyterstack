@@ -3,7 +3,7 @@ variable "gcp_credentials" {
     description = "Location GCP credentials"
 }
 
-variable "gcp_project" {
+variable "gcp_project_id" {
   type        = string
   description = "Project name"
 }

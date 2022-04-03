@@ -14,8 +14,6 @@ spec:
       containers:
         - name: api-ml
           image: adilsonsilvajr/diabetes-ml:latest
-          securityContext:
-            privileged: true
           ports:
             - containerPort: 80
               name: http
@@ -49,6 +47,8 @@ spec:
       containers:
         - name: app
           image: adilsonsilvajr/diabetes-app:latest
+          securityContext:
+            privileged: true
           ports:
             - containerPort: 8501
 ---

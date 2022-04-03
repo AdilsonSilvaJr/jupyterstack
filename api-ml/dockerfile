@@ -4,15 +4,11 @@ RUN mkdir ml
 
 WORKDIR /ml
 
-COPY model model
-
-COPY requirements.txt requirements.txt
+COPY src/requirements.txt requirements.txt
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY diabetes_ML.py diabetes_ML.py
-
-COPY ./start.sh ./start.sh
+COPY src/ .
 
 RUN chmod +x start.sh
 

@@ -19,3 +19,6 @@ kubectl delete -f k8s/deployment.yaml
 # docker push adilsonsilvajr/diabetes-ml:v0.0.1
 # docker tag adilsonsilvajr/diabetes-ml:v0.0.1 adilsonsilvajr/diabetes-ml:latest
 # docker push adilsonsilvajr/diabetes-ml:latest
+
+gcloud container clusters get-credentials amiable-port-343414-gke --region us-central1
+

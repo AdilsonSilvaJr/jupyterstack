@@ -1,11 +1,11 @@
-# API Machine Learning - Build and Maintaince
+# APP Dashboard - Build and Maintaince
 
 ## Step 1 - Build dockerfile:
 ### Set the docker-namespace & namespace
 ```sh
 export DOCKER_REPO="adilsonsilvajr"
 
-export DOCKER_PROJECTNAME="diabetes-ml"
+export DOCKER_PROJECTNAME="diabetes-app"
 
 export DOCKER_VERSION="v0.0.1"
 ```

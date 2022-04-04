@@ -1,22 +1,26 @@
-#!/bin/bash
-##################################################################################################
-############## Chart from: https://artifacthub.io/packages/helm/airflow-helm/airflow ##############
-##################################################################################################
+
+# Airflow k8s - Instalation and Maintaince
+
+## Chart from: https://artifacthub.io/packages/helm/airflow-helm/airflow
 
 ############## (Step 1) - Add this helm repository: ##############
-## add this helm repository & pull updates from it
+## Add this helm repository & pull updates from it
 helm repo add airflow-stable https://airflow-helm.github.io/charts
 helm repo update
 
 ############## (Step 2) - Install chart: ##############
-## set the release-name & namespace
+## Set the release-name & namespace
 export AIRFLOW_NAME="airflow-cluster"
 export AIRFLOW_NAMESPACE="airflow-cluster"
 
-#create namespace
+## Create a local airflow cluster 
+### Note: You have to installed "k3d" for continue
+k3d cluster create $AIRFLOW_NAME
+
+## Create namespace
 kubectl create ns $AIRFLOW_NAMESPACE
 
-# install using helm 3
+## Install using helm 3
 helm install \
   $AIRFLOW_NAME \
   airflow-stable/airflow \

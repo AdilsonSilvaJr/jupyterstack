@@ -19,7 +19,7 @@ export AIRFLOW_NAMESPACE="airflow-cluster"
 ```
 
 ### Create a local airflow cluster 
-#### Note: You have to installed "k3d" for continue
+* Note: You have to installed "k3d" for continue
 ```sh
 k3d cluster create $AIRFLOW_NAME
 ```
@@ -28,6 +28,9 @@ k3d cluster create $AIRFLOW_NAME
 kubectl create ns $AIRFLOW_NAMESPACE
 ```
 ### Install using helm 3
+* Note: Before install the .yaml file you have to change:
+  - In gitSync - Line 1122 (repo:) - put your repository
+  - In gitSync - Line (repoSubPath:) - put your dag location
 ```sh
 helm install \
   $AIRFLOW_NAME \

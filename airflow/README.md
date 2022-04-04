@@ -30,7 +30,7 @@ kubectl create ns $AIRFLOW_NAMESPACE
 ### Install using helm 3
 * Note: Before install the .yaml file you have to change:
   - In gitSync - Line 1122 (repo:) - put your repository
-  - In gitSync - Line (repoSubPath:) - put your dag location
+  - In gitSync - Line 1128 (repoSubPath:) - put your dag location
 ```sh
 helm install \
   $AIRFLOW_NAME \

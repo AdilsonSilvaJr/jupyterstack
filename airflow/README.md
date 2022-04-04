@@ -21,7 +21,7 @@ export AIRFLOW_NAMESPACE="airflow-cluster"
 ### Create a local airflow cluster 
 * Note: You have to installed "k3d" for continue
 ```sh
-k3d cluster create $AIRFLOW_NAME
+k3d cluster create $AIRFLOW_NAME --servers 1 --agents 1
 ```
 ### Create namespace
 ```sh

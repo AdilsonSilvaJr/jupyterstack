@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import requests
 import os
+import json
 
 
 def app():
@@ -46,7 +47,6 @@ def app():
 
     with st.form("my_form"):
 
-        name_val = st.text_input('Seu Nome')
         left_column, right_column = st.columns(2)
 
         with left_column:
@@ -94,24 +94,33 @@ def app():
     genhlt = dict_genhlt[genhlt]
 
     if submitted:
-        url = 'http://{}:{}/predict'.format(api_ml_url, api_ml_port)
-        data_ml = {
-            "BMI": bmi,
-            "Age": age,
-            "Income": income,
-            "PhysHlth": physhlt,
-            "Education": education,
-            "GenHlth": genhlt,
-            "MentHlth": menthlt,
-            "HighBP": highbp,
-            "Fruits": fruits,
-            "Smoker": smoker
-        }
-        predict_values = requests.post(url, json=data_ml)
-        st.write(data_ml)
-        st.write(predict_values.text)
+        with st.spinner('Modelando seus dados...'):
+            url = 'http://{}:{}/predict'.format(api_ml_url, api_ml_port)
+            data_ml = {
+                "BMI": bmi,
+                "Age": age,
+                "Income": income,
+                "PhysHlth": physhlt,
+                "Education": education,
+                "GenHlth": genhlt,
+                "MentHlth": menthlt,
+                "HighBP": highbp,
+                "Fruits": fruits,
+                "Smoker": smoker
+            }
+            predict_values = requests.post(url, json=data_ml)
 
-        # columns = ['BMI','Age','Income','PhysHlth', 'Education', 'GenHlth', 'MentHlth', 'HighBP', 'Fruits', 'Smoker']
-        # input = [[bmi, int(age), income, physhlt, education, genhlt, menthlt, highbp, fruits, smoker]]
-        # data = pd.DataFrame(data=input, columns=columns)
-        # st.write(data.head())
+            predict_response = json.loads(predict_values.text)
+
+            score_percent = round(predict_response['score'] * 100)
+            predict_int = int(predict_response['predict'])
+
+            if predict_int == 0:
+                st.info('Você **NÃO POSSUI** risco de ter diabetes')
+            elif predict_int == 1:
+                st.info('Você **POSSUI** risco de ter prediabetes')
+            else:
+                st.info('Você **POSSUI** risco de ter diabetes')
+
+            st.info(
+                'Sua conformidade com o modelo é de **{}%**'.format(score_percent))

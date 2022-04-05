@@ -117,14 +117,14 @@ def app():
         with col4:
             st.plotly_chart(figure1)
         with col5:
-            figure_pie = px.pie(df_filtro, names='Sex', color_discrete_sequence=["darkblue", "blue"],
-                                template="simple_white", width=600, height=400, title="Distribuição Por Sexo")
-            st.plotly_chart(figure_pie)
+            st.plotly_chart(histogram2)
 
     with container_graficos2:
         with col6:
             st.plotly_chart(figure2)
         with col7:
-            st.plotly_chart(histogram2)
+            figure_pie = px.pie(df_filtro, names='Sex', color_discrete_sequence=["darkblue", "blue"],
+                template="simple_white", width=600, height=400, title="Distribuição Por Sexo")
+            st.plotly_chart(figure_pie)
 
     st.plotly_chart(histogram1)

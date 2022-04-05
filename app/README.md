@@ -11,13 +11,13 @@ export DOCKER_VERSION="v0.0.1"
 ```
 ### Build docker file, push to dockerhub and update latest version
 ```sh
-docker image build -t $DOCKER_REPO/$DOCKER_PROJECTNAME:$DOCKER_VERSION .
+docker image build -t $(echo $DOCKER_REPO)/$(echo $DOCKER_PROJECTNAME):$(echo $DOCKER_VERSION) .
 
-docker push $DOCKER_REPO/$DOCKER_PROJECTNAME:$DOCKER_VERSION
+docker push $(echo $DOCKER_REPO)/$(echo $DOCKER_PROJECTNAME):$(echo $DOCKER_VERSION)
 
-docker tag $DOCKER_REPO/$DOCKER_PROJECTNAME:$DOCKER_VERSION $DOCKER_REPO/$DOCKER_PROJECTNAME:latest
+docker tag $(echo $DOCKER_REPO)/$(echo $DOCKER_PROJECTNAME):$(echo $DOCKER_VERSION) $(echo $DOCKER_REPO)/$(echo $DOCKER_PROJECTNAME):latest
 
-docker push $DOCKER_REPO/$DOCKER_PROJECTNAME:$DOCKER_VERSION:latest
+docker push $(echo $DOCKER_REPO)/$(echo $DOCKER_PROJECTNAME):latest
 ```
 ## Step 2 - Running k8s .yaml in the cloud
 Verify [here](https://github.com/AdilsonSilvaJr/jupyterstack/tree/master/k8s) how create, build and maintaince k8s in cloud

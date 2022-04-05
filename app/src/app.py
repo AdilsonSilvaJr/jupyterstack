@@ -9,8 +9,6 @@ st.sidebar.markdown("""
 # Projeto  Predição de diabetes 
 ## Time Jupyter 🚀
 
-Escrever alguma coisa aqui
-
 """)
 
 # Add all your application here

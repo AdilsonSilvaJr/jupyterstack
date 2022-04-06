@@ -1,4 +1,4 @@
-# Project Stack Labs - Team Jupyter
+# Project Stack Labs - Team Jupyter 🚀
 
 * Adilson Gomes da Silva Junior<a href="https://www.linkedin.com/in/adilson-silva-junior"><img align="left" src="https://github.com/AdilsonSilvaJr/jupyterstack/blob/94e1e071b4f341a4c5cc59ae51854577ec8ad74b/images/linkedin.svg" alt="icon | LinkedIn" width="21px"/></a>
 

@@ -1,7 +1,6 @@
 *.csv
 *.env
 *.cache
-documents
 
 # Local .terraform directories
 **/.terraform/*

@@ -14,6 +14,11 @@ spec:
       containers:
         - name: api-ml
           image: adilsonsilvajr/diabetes-ml:latest
+          resources:
+            requests:
+              memory: "2G"
+            limits:
+              memory: "4G"
           securityContext:
             privileged: true
           ports:
@@ -48,7 +53,12 @@ spec:
     spec:
       containers:
         - name: app
-          image: adilsonsilvajr/diabetes-app:v0.0.1
+          image: adilsonsilvajr/diabetes-app:latest
+          resources:
+            requests:
+              memory: "1G"
+            limits:
+              memory: "2G"
           securityContext:
             privileged: true
           ports:

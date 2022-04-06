@@ -13,6 +13,6 @@ st.sidebar.markdown("""
 
 # Add all your application here
 app.add_app("Dashboard", dashboard.app)
-app.add_app("Model", model.app)
+app.add_app("Modelo", model.app)
 # The main app
 app.run()

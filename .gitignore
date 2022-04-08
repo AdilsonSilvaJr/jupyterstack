@@ -50,5 +50,8 @@ stop-docker-jupyter.sh
 terraform/aws/*
 terraform/azure/*
 
+#terraform gcp ignored files
+terraform/credentials/*
+
 #models
 *.pkl

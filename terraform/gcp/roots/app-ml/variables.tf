@@ -1,6 +1,6 @@
 variable "gcp_credentials" {
-    type = string
-    description = "Location GCP credentials"
+  type        = string
+  description = "Location GCP credentials"
 }
 
 variable "gcp_project_id" {

@@ -8,6 +8,6 @@ terraform {
   backend "gcs" {
     credentials = "../../../credentials/gcp-terraform-config.json"
     bucket      = "remote-terraform-state-files"
-    prefix      = "tf-state-app-ml"
+    prefix      = "tf-state-gcp-app-ml"
   }
 }

@@ -6,7 +6,7 @@ provider "google" {
 
 terraform {
   backend "gcs" {
-    credentials = "../../../credentials/gcp-terraform-config.json"
+    credentials = "../../../../credentials/gcp-terraform-config.json"
     bucket      = "remote-terraform-state-files"
     prefix      = "tf-state-gcp-app-ml"
   }

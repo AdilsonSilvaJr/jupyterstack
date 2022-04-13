@@ -23,7 +23,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY src/ .
 
-ENV GOOGLE_APPLICATION_CREDENTIALS=/app/credentials/terraform-config.json
+ENV GOOGLE_APPLICATION_CREDENTIALS=/app/credentials/gcp-terraform-config.json
 
 RUN chmod +x start.sh
 

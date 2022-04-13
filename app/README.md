@@ -19,8 +19,8 @@ docker tag $(echo $DOCKER_REPO)/$(echo $DOCKER_PROJECTNAME):$(echo $DOCKER_VERSI
 
 docker push $(echo $DOCKER_REPO)/$(echo $DOCKER_PROJECTNAME):latest
 ```
-## Step 2 - Running k8s .yaml in the cloud
-Verify [here](https://github.com/AdilsonSilvaJr/jupyterstack/tree/master/k8s) how create, build and maintaince k8s in cloud
+## Step 2 - Running k8s .yaml in the cloud GCP
+Verify [here](https://github.com/AdilsonSilvaJr/jupyterstack/tree/master/terraform/gcp) how create, build and maintaince k8s in cloud gcp
 
 ## Extra commands dockerfile:
 ### Run docker file

@@ -48,7 +48,6 @@ stop-docker-jupyter.sh
 
 #clouds
 terraform/aws/*
-terraform/azure/*
 
 #terraform gcp ignored files
 terraform/credentials/*

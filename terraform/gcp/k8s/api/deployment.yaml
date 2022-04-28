@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-ml
+spec:
+  selector:
+    matchLabels:
+      app: api-ml
+  template:
+    metadata:
+      labels:
+        app: api-ml
+    spec:
+      containers:
+        - name: api-ml
+          image: adilsonsilvajr/diabetes-ml:latest
+          resources:
+            requests:
+              memory: "2G"
+            limits:
+              memory: "4G"
+          securityContext:
+            privileged: true
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
